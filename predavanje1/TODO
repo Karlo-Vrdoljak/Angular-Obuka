@@ -1,0 +1,31 @@
+☐ install nodejs
+install ng (angular):
+  ☐ ng
+  ☐ primeng
+  ☐ tailwindcss
+  ☐ i18n
+  ☐ ngx-mask
+  ☐ ngx-ui-loader
+☐ install nodemon
+☐ init expressjs app
+☐ CRUD app
+
+☐ node -v
+☐ ng --version
+☐ npm install -g @angular/cli
+
+
+init applikacije:
+  ☐ ng new todo
+  ☐ routing? Yes
+  ☐ styles? SCSS
+
+
+extensions:
+  ☐ angular snippets (version 12)
+  ☐ tailwind css instellisense
+  ☐ prettier
+
+☐ cd direktorij_gdje_ste_otvorili_vs_code/client/todo
+
+☐ npm i tailwindcss primeng ngx-mask ngx-ui-loader primeicons 
