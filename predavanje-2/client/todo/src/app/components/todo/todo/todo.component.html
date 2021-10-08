@@ -1,0 +1,44 @@
+<div class="p-2" *ngIf="todo">
+  <p-card>
+    <ng-template pTemplate="header">
+      <div class="flex flex-col">
+        <div class="text-center text-lg font-semibold tracking-wide text-gray-800">
+          {{ todo.label }}
+        </div>
+        <div class="text-center tracking-wide text-gray-600">{{ todo.kategorija }}</div>
+      </div>
+    </ng-template>
+    <div class="flex flex-col w-full">
+      <div class="flex px-4 items-center justify-between" *ngFor="let stavka of todo.stavke">
+        <div [class]="stavka.isCompleted ? 'text-green-600 line-through' : 'text-red-600'">{{ stavka.label }}</div>
+        <!-- <div>{{ stavka.isCompleted }}</div> -->
+
+        <!-- <i *ngIf="stavka.isCompleted" class="pi pi-check-circle"></i> -->
+        <!-- <i *ngIf="!stavka.isCompleted" class="pi pi-times-circle"></i> -->
+
+        <!-- <i class="pi" [ngClass]="{'pi-check-circle': stavka.isCompleted, 'pi-times-circle': !stavka.isCompleted }"></i> -->
+
+        <i *ngIf="stavka.isCompleted; else notCompletedRef" class="pi pi-check-circle text-green-600"></i>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <div class="flex flex-col w-full">
+        <div class="flex items-center justify-between w-full text-lg text-gray-800">
+          <div>Kreiran dana</div>
+          <div>{{ todo.datum | date: 'dd-MM-yyyy, hh:mm' }}</div>
+        </div>
+        <div class="flex items-center justify-between w-full text-lg text-gray-800">
+          <div class="w-full">
+            <a [routerLink]="['/todo/' + todo.id]">
+              <button styleClass="w-full" pButton pRipple type="button" label="Pregledaj" class="p-button-raised p-button-text"></button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+
+<ng-template #notCompletedRef>
+  <i class="pi pi-times-circle text-red-600"></i>
+</ng-template>
