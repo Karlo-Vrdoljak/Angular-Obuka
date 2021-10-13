@@ -16,4 +16,7 @@ export class TodoService {
 
     return this.http.get(`${environment.API_URL}/one`, { params: { id } });
   }
+  getAllCategories() {
+    return this.http.get(`${environment.API_URL}/kategorija/all`);
+  }
 }

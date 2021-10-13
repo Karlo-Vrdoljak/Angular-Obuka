@@ -1,0 +1,55 @@
+<div class="p-2" *ngIf="todo">
+  <form [formGroup]="form">
+    <p-card>
+      <ng-template pTemplate="header">
+        <div class="flex flex-col">
+          <div class="flex py-2 items-center justify-center text-lg font-semibold tracking-wide text-gray-800 w-full">
+            <div class="flex flex-col">
+              <label for="float-input">Naslov</label>
+              <input id="float-input" type="text" pInputText formControlName="label" />
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center tracking-wide text-gray-600 w-full">
+            <label for="float-input">Kategorija</label>
+            <p-dropdown [options]="kategorije" formControlName="kategorija" dataKey="id" optionLabel="kategorija"></p-dropdown>
+          </div>
+        </div>
+      </ng-template>
+      <div class="flex flex-col w-full">
+        <div class="flex px-4 items-center justify-between" *ngFor="let control of formArray.controls; index as i">
+          <div class="flex flex-col">
+            <label for="float-input">Naziv Stavke</label>
+            <div class="flex flex-row">
+              <div class="pr-4">
+                <input id="float-input" type="text" pInputText [formControl]="control.controls.label" />
+              </div>
+              <div class="flex flex-row">
+                <div class="pr-2">
+                  <label for="float-input">Odrađeno:</label>
+                </div>
+                <div>
+                  <p-inputSwitch [formControl]="control.controls.isCompleted"></p-inputSwitch>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div [class]="stavka.isCompleted ? 'text-green-600 line-through' : 'text-red-600'">{{ stavka.label }}</div> -->
+
+          <!-- <i *ngIf="stavka.isCompleted; else notCompletedRef" class="pi pi-check-circle text-green-600"></i> -->
+        </div>
+      </div>
+      <ng-template pTemplate="footer">
+        <div class="flex flex-col w-full">
+          <!-- <div class="flex items-center justify-between w-full text-lg text-gray-800">
+            <div>Kreiran dana</div>
+            <div>{{ todo.datum | date: 'dd-MM-yyyy, hh:mm' }}</div>
+          </div> -->
+        </div>
+      </ng-template>
+    </p-card>
+  </form>
+</div>
+
+<ng-template #notCompletedRef>
+  <i class="pi pi-times-circle text-red-600"></i>
+</ng-template>

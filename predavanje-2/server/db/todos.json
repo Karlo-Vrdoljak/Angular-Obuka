@@ -2,7 +2,7 @@
   {
     "id": 1,
     "label": "Današnji zadaci",
-    "kategorija": "Posao",
+    "kategorija": 1,
     "datum": "2021-10-07T12:24:14.314Z",
     "stavke": [
       { "label": "marenda", "isCompleted": true },

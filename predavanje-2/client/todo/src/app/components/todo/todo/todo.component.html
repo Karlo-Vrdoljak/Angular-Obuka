@@ -5,7 +5,7 @@
         <div class="text-center text-lg font-semibold tracking-wide text-gray-800">
           {{ todo.label }}
         </div>
-        <div class="text-center tracking-wide text-gray-600">{{ todo.kategorija }}</div>
+        <div class="text-center tracking-wide text-gray-600">{{ todo.kategorija.kategorija }}</div>
       </div>
     </ng-template>
     <div class="flex flex-col w-full">
@@ -27,7 +27,7 @@
           <div>Kreiran dana</div>
           <div>{{ todo.datum | date: 'dd-MM-yyyy, hh:mm' }}</div>
         </div>
-        <div class="flex items-center justify-between w-full text-lg text-gray-800">
+        <div *ngIf="showLink" class="flex items-center justify-between w-full text-lg text-gray-800">
           <div class="w-full">
             <a [routerLink]="['/todo/' + todo.id]">
               <button styleClass="w-full" pButton pRipple type="button" label="Pregledaj" class="p-button-raised p-button-text"></button>
