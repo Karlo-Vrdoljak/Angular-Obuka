@@ -19,4 +19,13 @@ export class TodoService {
   getAllCategories() {
     return this.http.get(`${environment.API_URL}/kategorija/all`);
   }
+  updateTodo(todo: any) {
+    return this.http.put(`${environment.API_URL}/one`, todo);
+  }
+  insertTodo(todo: any) {
+    return this.http.post(`${environment.API_URL}/one`, todo);
+  }
+  deleteTodo({ id }: any) {
+    return this.http.delete(`${environment.API_URL}/one`, { params: { id } });
+  }
 }

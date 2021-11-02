@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "label": "Današnji zadaci",
+    "kategorija": 1,
+    "datum": "2021-10-07T12:24:14.314Z",
+    "stavke": [
+      { "label": "marenda", "isCompleted": true },
+      { "label": "odradit smjenu", "isCompleted": true },
+      { "label": "očistit kuću", "isCompleted": false },
+      { "label": "ić leć", "isCompleted": true }
+    ]
+  }
+]

@@ -1,9 +1,19 @@
 <div class="container min-h-full mx-auto p-6">
-  <div class="tracking-wider py-2 text-xl border-b-2 font-semibold text-gray-700">My Todos</div>
-  <div class="flex flex-wrap -mx-1 overflow-hidden sm:-mx-3">
-    <div *ngFor="let item of todos" class="my-1 px-1 w-full overflow-hidden sm:my-3 sm:px-3 sm:w-1/2 md:w-1/3 lg:w-1/4">
-      <!-- Column Content -->
-      <app-todo [showLink]="true" [todo]="item"></app-todo>
-    </div>
+  <div class="tracking-wider py-2 flex flex-row items-center text-xl border-b-2 font-semibold text-gray-700">
+    <div class="pr-3">My Todos</div>
+    <div><p-button label="Novi" (click)="onInsertToggle()" icon="pi pi-plus" styleClass="p-button-success"></p-button></div>
   </div>
+
+  <ng-container *ngIf="!isInsertMode; else insertModeRef">
+    <div class="flex flex-wrap -mx-1 overflow-hidden sm:-mx-3">
+      <div *ngFor="let item of todos" class="my-1 px-1 w-full overflow-hidden sm:my-3 sm:px-3 sm:w-1/2 md:w-1/3 lg:w-1/4">
+        <!-- Column Content -->
+        <app-todo [showLink]="true" [todo]="item"></app-todo>
+      </div>
+    </div>
+  </ng-container>
 </div>
+
+<ng-template #insertModeRef>
+  <app-todo-edit (onInsert)="handleInserted($event)" [isUpdate]="false" [todo]="todo" [kategorije]="kategorije"></app-todo-edit>
+</ng-template>

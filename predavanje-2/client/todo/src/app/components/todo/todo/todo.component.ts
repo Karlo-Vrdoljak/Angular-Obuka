@@ -12,5 +12,8 @@ export class TodoComponent implements OnInit {
   @Input() showLink: boolean = false;
   constructor(public route: ActivatedRoute, public todoService: TodoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.todo);
+    
+  }
 }

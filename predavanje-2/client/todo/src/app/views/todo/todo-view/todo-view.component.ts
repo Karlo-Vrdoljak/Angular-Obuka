@@ -16,6 +16,7 @@ export class TodoViewComponent implements OnInit {
     route.params.subscribe((params) => {
       todoService.getOneTodo({ id: +params.id }).subscribe(({ todo }: any) => {
         this.todo = todo;
+        console.log(this.todo);
       });
     });
   }
@@ -34,7 +35,9 @@ export class TodoViewComponent implements OnInit {
       header: 'Are you sure you want to delete this todo?',
       message: 'This action is irreversible.',
       accept: () => {
-        console.log('accepted');
+        this.todoService.deleteTodo({ id: this.todo.id }).subscribe(() => {
+          this.router.navigateByUrl('/');
+        });
       },
       rejectButtonStyleClass: 'p-button-text',
       acceptButtonStyleClass: 'p-button-danger',
